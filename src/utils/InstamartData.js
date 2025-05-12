@@ -1,4 +1,4 @@
-const InstamartData=[
+export const instamartData=[
                         {
                         "id": "64a7a4ef02878f0001e7e0be",
                         "imageId": "NI_CATALOG/IMAGES/CIW/2024/4/22/0a688af1-1bb4-4a55-8128-31fc79cc9ad0_6d0abb9a-daff-4fbe-a1c9-2dddb6ae6717",
