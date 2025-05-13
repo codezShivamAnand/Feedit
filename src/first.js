@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import FoodOption from "./components/FoodOption";
 import InstamartOptions from "./components/Instamart/InstamartOptions";
 import DineOption from "./components/Dine/DineOption";
+import Restaurant from "./components/FoodDelivery/Restaurant";
+
 
 function App(){
     return(
@@ -12,6 +14,7 @@ function App(){
             <FoodOption/>
             <InstamartOptions/>
             <DineOption/>
+            <Restaurant/>
         </>
     )
 }
