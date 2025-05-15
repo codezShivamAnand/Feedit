@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import RestCard from "./RestCard";
+import Shimmer from "./Shimmer";
 
 export default function Restaurant(){
 
@@ -15,10 +16,16 @@ export default function Restaurant(){
             const data = await response.json();
 
             // dislay to the ui-> useState 
-            setRestData(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+            setRestData(data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         }
         fetchData();
     }, []) 
+// console.log(RestData);
+        // shimmer effect
+    if(RestData.length ==0) {
+        return <Shimmer></Shimmer>
+        // return <h1>Loading</h1>
+    }
 
     return (
         <div className="flex flex-wrap w-[80%] mx-auto mt-20 gap-5">
