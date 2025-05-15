@@ -1,6 +1,9 @@
+import {Link} from "react-router";
+
 export default function RestCard({restInfo}){
     return (
         <>
+          <Link to={"/city/delhi/"+ restInfo?.info?.id}>
             <div className="flex-none h-[250px] w-[280px] transition-all duration-200 hover:scale-120 hover:bg-gray-100 rounded-xl shadow-gray-300 overflow-hidden">
               <img
                 className="w-full h-40 object-cover rounded-2xl" //w-full: "Width: 100% of the parent container"
@@ -21,6 +24,7 @@ export default function RestCard({restInfo}){
                 </p>
               </div>
             </div>
+            </Link>
         </>
     )
 }
