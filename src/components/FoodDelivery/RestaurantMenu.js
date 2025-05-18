@@ -1,6 +1,7 @@
 import {useParams} from "react-router";
 import {useEffect, useState} from "react";
 import RestaurantMenuOptions from "./RestaurantMenuOptions.js";
+import {Link} from "react-router";
 
 export default function RestaurantMenu(){
     const {id} = useParams(); // returns an object -> destructure id 
@@ -27,7 +28,12 @@ export default function RestaurantMenu(){
     //    console.log(RestData);
 
     return(
-        <div className="bg-pink-300">
+        <div>
+            <Link to={`/city/delhi/${id}/search`}>
+            <div className="w-[55%] mx-auto text-center bg-gray-300 rounded-xl mt-4 border border-white">
+                <p className="w-full text-md text-grey-300 p-2.5 border shadow-md  " >search for dishes</p>
+            </div>
+            </Link>
             <div className="w-[55%] mx-auto mt-5 mb-3 p-2">
                 <button className= {`mx-auto text-lg text-black font-semibold rounded-xl border px-8 mr-2 ${selected==="veg" ? "bg-green-600" : "bg-gray-300"} `} onClick={()=>setSelected(selected==='veg'? null : 'veg')}>Veg</button>
                 <button className={`mx-auto text-lg text-black font-semibold rounded-xl border px-6 ${selected==="nonveg" ? "bg-red-500" : "bg-gray-300"} `} onClick={()=>setSelected(selected==='nonveg' ? null : 'nonveg')}>NonVeg</button>
