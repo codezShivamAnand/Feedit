@@ -6,6 +6,7 @@ import Home from "./pages/Home"
 import RestaurantMenu from "./components/FoodDelivery/RestaurantMenu";
 import Searchfood from "./components/FoodDelivery/Searchfood";
 import Instamart1 from "./pages/InstamartPage/Instamart1";
+import CommonHeader from "./components/CommonHeader";
 
 function App(){
     return(
@@ -13,10 +14,12 @@ function App(){
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home/>} />
-                    <Route path="/restaurant" element={<Restaurant/>} />
-                    <Route path="/city/delhi/:id" element={<RestaurantMenu/>} />
-                    <Route path="/instamart" element={<Instamart1 />} />
-                    <Route path="/city/delhi/:id/search" element={<Searchfood />} />
+                    <Route element={<CommonHeader />}>
+                        <Route path="/restaurant" element={<Restaurant/>} />
+                        <Route path="/city/delhi/:id" element={<RestaurantMenu/>} />
+                        <Route path="/instamart" element={<Instamart1 />} />
+                        <Route path="/city/delhi/:id/search" element={<Searchfood />} />
+                    </Route>
                 </Routes>
             </BrowserRouter>
         </>
