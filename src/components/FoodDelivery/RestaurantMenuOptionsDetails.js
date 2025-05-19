@@ -1,4 +1,28 @@
+import {useState} from "react";
+import {addItems, IncrementItems, DecrementItems} from "../../Stored/CartSlicer"
+import { useDispatch, useSelector } from "react-redux";
+
 export default function RestaurantMenuOptionsDetails({items}){
+// items : info of menu
+
+    const [count, setCount] = useState(0);
+    const dispatch = useDispatch();
+
+    function handleAdditems(){
+        setCount(1);
+        dispatch(addItems(items));
+    }
+
+    function handleIncrementItems(){
+        setCount(count+1);
+        dispatch(IncrementItems(items));
+    }
+
+    function handleDecrementItems(){
+        setCount(count-1);
+        dispatch(DecrementItems(items));
+    }
+
     return  (
         <>
         <div className="w-full flex justify-between mt-4">  
@@ -19,9 +43,17 @@ export default function RestaurantMenuOptionsDetails({items}){
                 )}
                 <p className="text-sm text-black line-clamp-2">{items?.description}</p>
             </div>
-            <div className="w-[20%] relative">
-                <img className="w-[80%] object-cover h-24 rounded-2xl" src={"https://media-assets.swiggy.com/swiggy/image/upload/" + items?.imageId }/> 
-                <button className=" w-[60%] absolute bottom-2 right-8 left-5 items-center text-md font-bold shadow-md border-white rounded-xl text-green-600 px-4 py-2 bg-white transition-transform hover:bg-gray-300">ADD</button>
+            <div className="w-[22%] h-30 relative bg-blue-400">
+                <img className="w-[90%] object-cover h-26 rounded-2xl" src={"https://media-assets.swiggy.com/swiggy/image/upload/" + items?.imageId }/> 
+                {
+                    count===0?(<button className=" absolute bottom-1 left-12 items-center text-md font-bold shadow-md border-white rounded-xl text-green-600 px-4 py-2 bg-white transition-transform hover:bg-gray-300" onClick={()=>handleAdditems()}>ADD</button>):(
+                        <div className="flex gap-3  absolute bottom-1 left-10 items-center text-md font-bold bg-amber-400 border-white rounded-xl text-green-600 px-4 py-2  transition-transform hover:bg-gray-300">
+                            <button onClick={()=>handleDecrementItems()}>-</button>
+                            <span> {count} </span>
+                            <button onClick={()=>handleIncrementItems()}>+</button>
+                        </div>
+                    )
+                }
             </div>
         </div>
         <hr className="mb-4 mt-3"></hr>
