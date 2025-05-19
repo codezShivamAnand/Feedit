@@ -7,6 +7,8 @@ import RestaurantMenu from "./components/FoodDelivery/RestaurantMenu";
 import Searchfood from "./components/FoodDelivery/Searchfood";
 import Instamart1 from "./pages/InstamartPage/Instamart1";
 import CommonHeader from "./components/CommonHeader";
+import { store } from "./Stored/stores";
+import {Provider} from "react-redux"
 
 function App(){
     return(
